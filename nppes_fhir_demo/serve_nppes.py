@@ -81,6 +81,7 @@ def fhir_lookup():
 	
 	#invoke ElasticSearch using the "lucene query mode"
 	try:
+		print queryText
 		es_reply = es.search(index='nppes', default_operator="AND", size=count, from_=startfrom, q=queryText)
 	except:
 		print "FAILED to query ES "
@@ -165,7 +166,7 @@ def build_fhir_Practitioner(es_provider_doc):
 				}
 			]),
 			("system", "email"),
-			("value", es_provider_doc.get('firstname')[0:1] + "." + es_provider_doc.get('lastname') + "@direct.somehist.com"),
+			("value", es_provider_doc.get('firstname')[0:1] + "." + es_provider_doc.get('lastname') + "@direct.somehisp.com"),
 			("use", "work")
 		])]
 
